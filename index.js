@@ -1,6 +1,9 @@
 // index.js
 // where your node app starts
 
+// Use PORT provided in environment or default to 3000
+const port = process.env.PORT || 3000;
+
 // init project
 require('dotenv').config();
 var express = require('express');
@@ -41,6 +44,11 @@ app.get("/api/whoami", (req, res) => {
 })
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT || 3000, function () {
+// var listener = app.listen(process.env.PORT || 3000, function () {
+//   console.log('Your app is listening on port ' + listener.address().port);
+// });
+
+var listener = app.listen(port, "0.0.0.0", function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+
